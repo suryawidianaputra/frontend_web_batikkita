@@ -11,7 +11,7 @@ export default function App() {
   const search = searchParams.get("page");
 
   return (
-    <div className="flex">
+    <div className="flex bg-grey">
       <NavigationBar />
       {search === "orders" && <Orders />}
       {search === "addProduct" && <AddProduct />}
