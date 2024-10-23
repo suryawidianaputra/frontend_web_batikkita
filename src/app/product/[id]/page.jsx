@@ -11,6 +11,7 @@ export default function ProductDetail({ params: { id } }) {
 
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState(0);
+  const [productQuantity, setProductQuantity] = useState(0);
   const [productDescription, setProductDescription] = useState("");
   const [error, setError] = useState(false);
 
@@ -23,6 +24,7 @@ export default function ProductDetail({ params: { id } }) {
       setProduct(data);
       setProductName(data.product_name);
       setProductPrice(data.product_price);
+      setProductQuantity(data.quantity);
       setProductDescription(data.product_description);
     } catch (error) {
       console.error("Error fetching product:", error);
@@ -39,6 +41,7 @@ export default function ProductDetail({ params: { id } }) {
           product_name: productName,
           product_price: parseInt(productPrice),
           product_description: productDescription,
+          quantity: productQuantity,
         }
       );
     }
@@ -124,6 +127,19 @@ export default function ProductDetail({ params: { id } }) {
                 onChange={(e) => setProductPrice(parseInt(e.target.value))}
               />
               <p>{curency(productPrice)}</p>
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Jumlah Produk
+              </label>
+              <input
+                type="number"
+                placeholder="Masukkan jumlah produk"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                value={productQuantity}
+                onChange={(e) => setProductQuantity(parseInt(e.target.value))}
+              />
             </div>
 
             <div className="mb-2">

@@ -11,6 +11,7 @@ export default function AddProduct() {
   const [preview, setPreview] = useState("");
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState(0);
+  const [productQuantity, setProductQuantity] = useState(0);
   const [productDescription, setProductDeskription] = useState("");
   const [error, setError] = useState(false);
 
@@ -39,6 +40,8 @@ export default function AddProduct() {
     formData.append("product_name", productName);
     formData.append("product_price", productPrice);
     formData.append("product_description", productDescription);
+    formData.append("quantity", productQuantity);
+    formData.append("soldout", 0);
 
     if (
       !(
@@ -115,6 +118,18 @@ export default function AddProduct() {
               onChange={(e) => setProductPrice(parseInt(e.target.value))}
             />
             <p>{curency(productPrice)}</p>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Jumlah product
+            </label>
+            <input
+              type="number"
+              placeholder="Masukkan jumlah produk"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={(e) => setProductQuantity(parseInt(e.target.value))}
+            />
           </div>
 
           <div className="mb-2">

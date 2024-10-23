@@ -42,7 +42,7 @@ export default function Orders() {
             value={filter}
           >
             <option value="all">Semua</option>
-            <option value="mengunggu" key="">
+            <option value="menunggu" key="">
               Menunggu
             </option>
             <option value="diproses" key="">
